@@ -1,5 +1,7 @@
 # devcontainer-poetry-example
 This is an example project using VS Code and Devcontainers to build a Python Poetry project.
+[Poetry - Python Dependency Manager](https://python-poetry.org/)
+[VS Code - Devolping inside a Container](https://code.visualstudio.com/docs/remote/containers)
 
 ## Creating a Poetry Project
 1. First make sure you have Python installed correctly.

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "hello-world"
+version = "0.1.0"
+description = "Example Hello World with devcontainers and Poetry"
+authors = ["brandon-setegn <bjsetegn@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiohttp = "^3.8.1"
+requests = "^2.27.1"
+ujson = "^5.3.0"
+pylint = "^2.13.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

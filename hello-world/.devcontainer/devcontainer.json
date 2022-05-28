@@ -1,0 +1,68 @@
+{
+    //This was taken from the example Microsoft config and modified
+	"name": "Python 3 with Poetry",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": { 
+			// Update 'VARIANT' to pick a Python version: 3, 3.10, 3.9, 3.8, 3.7, 3.6
+			// Append -bullseye or -buster to pin to an OS version.
+			// Use -bullseye variants on local on arm64/Apple Silicon.
+			"VARIANT": "3.10-bullseye",
+		}
+	},	
+    // This is how we can environment variables in our project
+	"runArgs": [
+		"--env-file", "${localWorkspaceFolder}/.devcontainer/.env"
+	],
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": { 
+                // This is very important, we set the default interpreter path to the virtual environment setup by poetry
+				"python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+                //
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+
+                // Settings leftover from Microsoft example
+				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+
+                // This was the original setting.
+				//"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
+                // This is very important, we use the pylint installed into our venv so it has access to all the dependencies poetry installed
+                // If this is not set the linter will not be able to import the packages managed by poetry in our venv
+				"python.linting.pylintPath": "${workspaceFolder}/.venv/bin/pylint",
+
+                // This enables pytest for testing
+				"python.testing.pytestEnabled": true,
+				"python.testing.unittestEnabled": false,
+				"python.testing.pytestArgs": [
+					"tests"
+				]
+			},
+
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+    // We use poetry to install dependencies instead of pip, we run this after our container is up and running in the postCreateCommand
+	"postCreateCommand": "poetry install",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}

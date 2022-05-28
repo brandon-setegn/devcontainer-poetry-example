@@ -5,6 +5,11 @@ This is an example project using VS Code and Devcontainers to build a Python Poe
 
 [VS Code - Devolping inside a Container](https://code.visualstudio.com/docs/remote/containers)
 
+## Running this Project
+If you have VS Code and Docker installed correctly you should be able to run this project very easily. There is only 1 thing left to do:
+1. Add file `.env` to the `/hello-world/.devcontainer` folder.  This file can be empty but needs to exist.  This is where we will put any environment variables that are required.  DO NOT check your .env into git.
+
+#### Here is a list of steps I used to create this project.
 
 ## Creating a Poetry Project
 1. First make sure you have Python installed correctly.
@@ -16,7 +21,7 @@ This is an example project using VS Code and Devcontainers to build a Python Poe
 2. Create a folder for devcontainer config: `\hello-world\.devcontainer`
 3. Add files `devcontainer.json` and `Dockerfile`
 4. Copy contents from this repository to their respective .devcontainer files
-5. Add file `.env` to the `/hello-world/.devcontainer` folder.  This file can be empty but needs to exist.  This is where we will put any environment variables that are required.  DO NOT check our .env into git.
+5. Add file `.env` to the `/hello-world/.devcontainer` folder.  This file can be empty but needs to exist.  This is where we will put any environment variables that are required.  DO NOT check your .env into git.
 
 ## Reopen Project in VS Code as devcontainer
 1. Inside VS Code open the Command Pallete with `CTRL + SHIFT + P`

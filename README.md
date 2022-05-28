@@ -9,7 +9,7 @@ This is an example project using VS Code and Devcontainers to build a Python Poe
 If you have VS Code and Docker installed correctly you should be able to run this project very easily. There is only 1 thing left to do:
 1. Add file `.env` to the `/hello-world/.devcontainer` folder.  This file can be empty but needs to exist.  This is where we will put any environment variables that are required.  DO NOT check your .env into git.
 
-#### Here is a list of steps I used to create this project.
+# How I Created this Project
 
 ## Creating a Poetry Project
 1. First make sure you have Python installed correctly.

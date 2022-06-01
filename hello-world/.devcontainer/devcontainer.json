@@ -8,7 +8,7 @@
 			// Update 'VARIANT' to pick a Python version: 3, 3.10, 3.9, 3.8, 3.7, 3.6
 			// Append -bullseye or -buster to pin to an OS version.
 			// Use -bullseye variants on local on arm64/Apple Silicon.
-			"VARIANT": "3.10-bullseye",
+			"VARIANT": "3.10-bullseye"
 		}
 	},	
     // This is how we can environment variables in our project
@@ -24,9 +24,12 @@
 			"settings": { 
                 // This is very important, we set the default interpreter path to the virtual environment setup by poetry
 				"python.defaultInterpreterPath": "${workspaceFolder}/.venv",
-                //
+                // Enable Linting
 				"python.linting.enabled": true,
 				"python.linting.pylintEnabled": true,
+
+				// Enable Type Checking
+				"python.analysis.typeCheckingMode": "basic",
 
                 // Settings leftover from Microsoft example
 				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",

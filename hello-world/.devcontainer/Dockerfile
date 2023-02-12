@@ -4,9 +4,9 @@ ARG VARIANT=3-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/python:${VARIANT}
 
 # **Important** Install Poetry and set virtualenvs in project to true
-USER vscode
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-ENV PATH="$PATH:/home/vscode/.poetry/bin"
+USER root
+run curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH="$PATH:/root/.local/bin"
 # This tells poetry to create the venv folder inside of our project folder sturcture
 # This makes it easier to reference and configure our python packages such as pylint
 RUN poetry config virtualenvs.in-project true

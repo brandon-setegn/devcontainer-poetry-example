@@ -40,7 +40,7 @@
 				//"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
                 // This is very important, we use the pylint installed into our venv so it has access to all the dependencies poetry installed
                 // If this is not set the linter will not be able to import the packages managed by poetry in our venv
-				"python.linting.pylintPath": "${workspaceFolder}/.venv/bin/pylint",
+				"python.linting.pylintPath": "/.venv/bin/pylint",
 
                 // This enables pytest for testing
 				"python.testing.pytestEnabled": true,
